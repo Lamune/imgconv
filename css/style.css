@@ -1,6 +1,7 @@
 body {
     padding:0;
     margin:10px;
+    max-width:480px;
 }
 h1 {
     padding:0.25em;
@@ -29,12 +30,13 @@ form ul {
 form ul li {
     /* display:inline; */
     list-style:none;
-    padding:0;
+    padding:0 0.2em 0 0;
     margin:0.1em;
 }
 .grid-1 {
     padding:0.25em;
     margin:0 0.25em;
+    text-align:center;
 }
 .grid-2 {
     padding:0.25em;

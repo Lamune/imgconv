@@ -178,8 +178,8 @@ if(isset($new_img)) {
     <div class="form_field">
         <div class="grid-2">
             <div class="label">ファイル選択(JPEG/PNG/GIF/BMP、<?php print $max_file_size ?>KB以下)</div>
-            <input class="form-text" name="IMG_PATH" type="file" />
-            <input class="form-text" name="UPLOAD" type="submit" value="　　変換　　" />
+            <input class="form-text" style="width:18em;font-size:1em" name="IMG_PATH" type="file" />
+            <input class="form-text" style="width:8em;font-size:1em" name="UPLOAD" type="submit" value="変換" />
         </div>
         <div class="flclear"><hr /></div>
         <div class="grid-2">
@@ -192,7 +192,7 @@ if(isset($new_img)) {
         </div>
         <div class="grid-2">
             <div class="label">JPEG品質(0-100)</div>
-            <input class="form-text align-right" style="width:5em" name="JPEG_QSCALE" type="text" value="80" />
+            <input class="form-text align-right" style="width:5em;font-size:1em;padding:0.25em;margin:0" name="JPEG_QSCALE" type="text" value="80" />
         </div>
         <div class="grid-2">
             <div class="label">PNG色数</div>
@@ -202,7 +202,7 @@ if(isset($new_img)) {
             </ul>
         </div>
         <div class="grid-2">
-            <div class="label">PNG/GIF減色ディザ</div>
+            <div class="label">減色ディザ</div>
             <ul class="form-text">
                 <li><input name="DITHER" type="radio" value="false" checked />無効</li>
                 <li><input name="DITHER" type="radio" value="true" />有効</li>
@@ -215,7 +215,8 @@ if(isset($new_img)) {
                 <li><input name="RESIZE" type="radio" value="0" checked />無し</li>
                 <li><input name="RESIZE" type="radio" value="1" />480x272</li>
                 <li><input name="RESIZE" type="radio" value="2" />640x480</li>
-                <li><input name="RESIZE" type="radio" value="9" />その他:<input class="form-text align-right" style="width:3em" name="WIDTH" type="text" value="480" /> x <input class="form-text align-right" style="width:3em" name="HEIGHT" type="text" value="272" /></li>
+                <li><input name="RESIZE" type="radio" value="9" />その他
+                    <input class="align-right" style="width:3em;font-size:1em;padding:0;margin:0" name="WIDTH" type="text" value="480" />x<input class="align-right" style="width:3em;font-size:1em;padding:0;margin:0" name="HEIGHT" type="text" value="272" /></li>
             </ul>
         </div>
         <div class="grid-2">
@@ -228,10 +229,9 @@ if(isset($new_img)) {
         </div>
         <div class="flclear"><hr /></div>
         <div class="grid-1">
-            <input class="form-text" name="UPLOAD" type="submit" value="　　変換　　" />
+            <input class="form-text" style="width:70%;font-size:1em" name="UPLOAD" type="submit" value="変換" />
         </div>
     </div>
 </form>
-<hr />
 </body>
 </html>
