@@ -7,16 +7,17 @@ closedir($res);
 // 現在時刻-n秒を削除指定時刻に
 $dtime = time()-15*60;
 
-for($i=2; $files[$i]; $i++) {                             //"."と".."を省くので$files[2]から検証
-    if($files[$i] != basename($_SERVER['SCRIPT_NAME'])) { //自分自身を含まないように
-        $ctime = filectime("./img/".$files[$i]);          //ファイルの作成日時を取得
-        if($ctime < $dtime) unlink("./img/".$files[$i]);  //削除基準と照らし合わせて古いものは削除。
+for($i=2; $files[$i]; $i++) {                               //"."と".."を省くので$files[2]から検証
+    if(($files[$i] != basename($_SERVER['SCRIPT_NAME'])) &&
+            ($files[$i] != "output_dir")) {                 //自分自身を含まないように
+        $ctime = filectime("./img/".$files[$i]);            //ファイルの作成日時を取得
+        if($ctime < $dtime) unlink("./img/".$files[$i]);    //削除基準と照らし合わせて古いものは削除。
     }
 }
 
 require "./include/GD_ImageCreateFromBMP.php";
 
-$max_file_size = 1024; // 単位：KB
+$max_file_size = 1024;  // 単位：KB
 
 if($_REQUEST["UPLOAD"] != "" && !$flag_err) {
     $flag_err = false;
@@ -189,7 +190,6 @@ if(isset($new_img)) {
                 <li><input name="CODEC" type="radio" value="gif" />GIF</li>
             </ul>
         </div>
-        <div class="flclear"> </div>
         <div class="grid-2">
             <div class="label">JPEG品質(0-100)</div>
             <input class="form-text align-right" style="width:5em" name="JPEG_QSCALE" type="text" value="80" />
@@ -215,14 +215,9 @@ if(isset($new_img)) {
                 <li><input name="RESIZE" type="radio" value="0" checked />無し</li>
                 <li><input name="RESIZE" type="radio" value="1" />480x272</li>
                 <li><input name="RESIZE" type="radio" value="2" />640x480</li>
-                <li><input name="RESIZE" type="radio" value="9" />その他</li>
+                <li><input name="RESIZE" type="radio" value="9" />その他:<input class="form-text align-right" style="width:3em" name="WIDTH" type="text" value="480" /> x <input class="form-text align-right" style="width:3em" name="HEIGHT" type="text" value="272" /></li>
             </ul>
         </div>
-        <div class="flclear"> </div>
-        <div class="grid-2">
-            その他の設定: 横 <input class="form-text align-right" style="width:4em" name="WIDTH" type="text" value="480" /> x 縦 <input class="form-text align-right" style="width:4em" name="HEIGHT" type="text" value="272" />
-        </div>
-        <div class="flclear"> </div>
         <div class="grid-2">
             <div class="label">縦横比が変わるときの設定</div>
             <ul class="form-text">
