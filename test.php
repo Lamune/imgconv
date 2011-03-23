@@ -9,7 +9,7 @@ $dtime = time()-15*60;
 
 for($i=2; $files[$i]; $i++) {                               //"."と".."を省くので$files[2]から検証
     if(($files[$i] != basename($_SERVER['SCRIPT_NAME'])) &&
-            ($files[$i] != "output_dir")) {                 //自分自身を含まないように
+            ($files[$i] != ".gitignore")) {                 //自分自身を含まないように
         $ctime = filectime("./img/".$files[$i]);            //ファイルの作成日時を取得
         if($ctime < $dtime) unlink("./img/".$files[$i]);    //削除基準と照らし合わせて古いものは削除。
     }
